@@ -1,0 +1,86 @@
+:root {
+  --bg: #f5f7f8;
+  --card: #ffffff;
+  --text: #17212b;
+  --muted: #5d6b78;
+  --line: #dde3e8;
+  --accent: #0b6e6e;
+  --accent-hover: #095757;
+  --warn-bg: #fff4d6;
+  --warn-text: #7a5600;
+  --err-bg: #fde8e8;
+  --err-text: #9b1c1c;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0f1418;
+    --card: #182027;
+    --text: #e8eef2;
+    --muted: #9aa8b4;
+    --line: #2a3640;
+    --accent: #2bb3b3;
+    --accent-hover: #4cc8c8;
+    --warn-bg: #3a2f10;
+    --warn-text: #f5d58a;
+    --err-bg: #3b1818;
+    --err-text: #f5a3a3;
+  }
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  line-height: 1.5;
+}
+.page { max-width: 1100px; margin: 0 auto; padding: 24px 16px 48px; }
+h1 { margin: 0 0 4px; font-size: 1.8rem; }
+h2 { margin: 0 0 12px; font-size: 1.1rem; }
+h3 { margin: 18px 0 8px; font-size: 0.95rem; }
+.sub { margin: 0 0 20px; color: var(--muted); max-width: 70ch; }
+.grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px; }
+@media (max-width: 800px) { .grid { grid-template-columns: 1fr; } }
+.card { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 18px; }
+.drop {
+  display: grid; place-items: center; min-height: 240px; border: 2px dashed var(--line);
+  border-radius: 10px; cursor: pointer; color: var(--muted); overflow: hidden; text-align: center; padding: 8px;
+}
+.drop.over, .drop:focus-visible { border-color: var(--accent); outline: none; }
+.drop img { max-width: 100%; max-height: 360px; border-radius: 6px; }
+.fname { margin: 8px 0 0; font-size: 0.85rem; color: var(--muted); word-break: break-all; }
+.slider { display: block; margin: 16px 0; }
+.slider input { width: 100%; margin: 6px 0 2px; accent-color: var(--accent); }
+.slider small { color: var(--muted); }
+button {
+  font: inherit; padding: 8px 14px; border-radius: 8px; border: 1px solid var(--line);
+  background: transparent; color: var(--text); cursor: pointer;
+}
+button:hover:not(:disabled) { border-color: var(--accent); }
+button:disabled { opacity: 0.5; cursor: not-allowed; }
+button.primary { width: 100%; background: var(--accent); border-color: var(--accent); color: #fff; font-weight: 600; padding: 11px; }
+button.primary:hover:not(:disabled) { background: var(--accent-hover); }
+.banner { margin: 12px 0; padding: 10px 12px; border-radius: 8px; font-size: 0.9rem; }
+.banner.warn { background: var(--warn-bg); color: var(--warn-text); }
+.banner.err { background: var(--err-bg); color: var(--err-text); }
+.muted { color: var(--muted); }
+.small { font-size: 0.8rem; }
+.tabs { display: flex; gap: 6px; margin-bottom: 10px; }
+.tabs button.on { background: var(--accent); border-color: var(--accent); color: #fff; }
+.resultimg { width: 100%; border-radius: 8px; border: 1px solid var(--line); display: block; }
+.stats { display: flex; gap: 10px; margin: 14px 0 0; }
+.stats div { flex: 1; text-align: center; border: 1px solid var(--line); border-radius: 8px; padding: 8px 4px; }
+.stats b { display: block; font-size: 1.2rem; }
+.stats span { color: var(--muted); font-size: 0.8rem; }
+.bars { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+.bars li { display: grid; grid-template-columns: 80px 1fr 80px; gap: 10px; align-items: center; font-size: 0.9rem; }
+.bars .lbl { display: flex; align-items: center; gap: 6px; }
+.bars .lbl i { width: 10px; height: 10px; border-radius: 50%; display: inline-block; }
+.bars .track { height: 10px; background: var(--line); border-radius: 5px; overflow: hidden; }
+.bars .track span { display: block; height: 100%; border-radius: 5px; transition: width 0.3s; }
+.bars .num { text-align: right; font-variant-numeric: tabular-nums; }
+.bars small { color: var(--muted); }
+.row { display: flex; gap: 8px; margin-top: 16px; flex-wrap: wrap; }
+table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+th, td { text-align: left; padding: 6px 8px; border-bottom: 1px solid var(--line); }
+footer { margin-top: 24px; font-size: 0.8rem; color: var(--muted); max-width: 80ch; }

@@ -1,0 +1,15 @@
+venv/
+__pycache__/
+*.pyc
+node_modules/
+frontend/dist/
+# dataset is CC BY-NC-ND: never commit or redistribute it
+dataset/
+*.zip
+results/*
+!results/.gitkeep
+models/*
+!models/.gitkeep
+.env
+
+*.pt
